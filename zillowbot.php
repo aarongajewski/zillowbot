@@ -55,7 +55,7 @@ $ch_response = curl_exec($ch);
 # Close the connection 
 curl_close($ch);
 
-#If an error is returned from Zillow, the response will be sent in XML instead of the requested JSON. If XML, parse so we can find out which error code was thrown.
+# If an error is returned from Zillow, the response will be sent in XML instead of the requested JSON. If XML, parse so we can find out which error code was thrown.
 if(substr($ch_response, 0, 5) == "<?xml") {
     $isxml = True;
     $xml = simplexml_load_string($ch_response, "SimpleXMLElement", LIBXML_NOCDATA);
